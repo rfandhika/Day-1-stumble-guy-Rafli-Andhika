@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DiamondHub — Top Up Mobile Legends</title>
+<style>
+:root{--bg:#080d1b;--panel:#121d34;--gold:#f6c65b;--muted:#aab6ce;--line:#ffffff18}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f7f9ff;font-family:Inter,Arial,sans-serif}
+header{height:72px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;background:#0b1224;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:4}
+.logo{font-size:22px;font-weight:900;letter-spacing:.5px}.logo span{color:var(--gold)}
+nav{display:flex;gap:26px}nav a{color:#dbe4f6;text-decoration:none;font-size:14px}nav a:hover{color:var(--gold)}
+.btn{border:0;border-radius:9px;padding:12px 18px;background:linear-gradient(120deg,#ffe08a,#e7a936);color:#171d2a;font-weight:800;cursor:pointer}
+.hero{padding:75px 7%;min-height:390px;background:radial-gradient(ellipse at 80% 40%,#305b91 0,transparent 43%),linear-gradient(110deg,#111d39,#080d1b);display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-copy{max-width:650px;z-index:1}.tag{color:var(--gold);font-weight:800;font-size:12px;letter-spacing:3px}
+h1{font-size:clamp(40px,6vw,65px);line-height:1.04;margin:15px 0}.hero p{color:#c0cbe0;line-height:1.8;max-width:560px}
+.hero-emblem{position:absolute;right:12%;font-size:160px;filter:drop-shadow(0 0 35px #5bb6ff99);transform:rotate(-12deg)}
+section{padding:58px 7%}.heading{text-align:center;margin-bottom:30px}.heading h2{font-size:30px;margin:0 0 8px}.heading p{color:var(--muted);margin:0}
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+.panel h3{margin:0 0 18px}.field{margin-bottom:16px}.field label{display:block;font-size:13px;color:#c5d0e3;margin-bottom:7px}
+input,select{width:100%;padding:13px 14px;border:1px solid #34435f;background:#0a1326;color:#fff;border-radius:9px;font-size:14px;outline:none}
+input:focus,select:focus{border-color:var(--gold)}
+.packages{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.package{padding:16px;border-radius:11px;border:1px solid #35435e;background:#0d172b;color:#fff;text-align:left;cursor:pointer;transition:.2s}
+.package:hover,.package.active{border-color:var(--gold);background:#242b39}
+.package strong{display:block;font-size:17px}.package small{display:block;color:var(--muted);margin-top:6px}.package .price{color:var(--gold);font-weight:800;margin-top:10px}
+.summary-line{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);color:#c8d2e4;font-size:14px}.summary-line b{color:#fff;text-align:right}
+.total{display:flex;justify-content:space-between;margin:20px 0;font-size:17px}.total strong{color:var(--gold);font-size:21px}
+.full{width:100%}.hint{font-size:12px;color:#8e9bb4;line-height:1.6;margin-top:13px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{padding:20px;background:#111b30;border:1px solid var(--line);border-radius:13px}.step b{color:var(--gold);font-size:22px}.step h3{margin:10px 0 5px}.step p{color:var(--muted);font-size:14px;line-height:1.6}
+footer{border-top:1px solid var(--line);padding:25px 7%;color:#8996af;font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:760px){header{padding:0 5%}nav{gap:12px}nav a{font-size:12px}.hero{padding:65px 6%}.hero-emblem{right:-30px;opacity:.18}.layout{grid-template-columns:1fr}section{padding:48px 6%}.steps{grid-template-columns:1fr}}
+@media(max-width:420px){.packages{grid-template-columns:1fr}.logo{font-size:18px}header .btn{padding:10px 12px;font-size:12px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">DIAMOND<span>HUB</span></div>
+ <nav><a href="#home">Home</a><a href="#topup">Top Up</a><a href="#cara">Cara Order</a></nav>
+ <a href="#topup"><button class="btn">Beli Diamond</button></a>
+</header>
+<main>
+<section class="hero" id="home">
+ <div class="hero-copy"><div class="tag">MOBILE LEGENDS • TOP UP CENTER</div>
+ <h1>Top Up Diamond,<br><span style="color:var(--gold)">Makin Epic!</span></h1>
+ <p>Isi ulang diamond Mobile Legends dengan mudah. Pilih nominal, masukkan User ID dan Zone ID, lalu lanjutkan pesananmu.</p>
+ <a href="#topup"><button class="btn">Top Up Sekarang →</button></a>
+ </div><div class="hero-emblem">💎</div>
+</section>
+<section id="topup">
+ <div class="heading"><h2>Pilih Paket Diamond</h2><p>Pilih jumlah diamond sesuai kebutuhanmu.</p></div>
+ <div class="layout">
+  <div class="panel">
+   <h3>1. Pilih nominal</h3>
+   <div class="packages" id="packages">
+    <button class="package" data-name="5 Diamonds" data-price="1500"><strong>5 💎 Diamonds</strong><small>5 + 0 Bonus</small><div class="price">Rp1.500</div></button>
+    <button class="package" data-name="12 Diamonds" data-price="3500"><strong>12 💎 Diamonds</strong><small>12 + 0 Bonus</small><div class="price">Rp3.500</div></button>
+    <button class="package" data-name="28 Diamonds" data-price="8000"><strong>28 💎 Diamonds</strong><small>28 + 0 Bonus</small><div class="price">Rp8.000</div></button>
+    <button class="package" data-name="59 Diamonds" data-price="16000"><strong>59 💎 Diamonds</strong><small>59 + 0 Bonus</small><div class="price">Rp16.000</div></button>
+    <button class="package" data-name="85 Diamonds" data-price="23000"><strong>85 💎 Diamonds</strong><small>85 + 0 Bonus</small><div class="price">Rp23.000</div></button>
+    <button class="package" data-name="170 Diamonds" data-price="45000"><strong>170 💎 Diamonds</strong><small>170 + 0 Bonus</small><div class="price">Rp45.000</div></button>
+    <button class="package" data-name="296 Diamonds" data-price="78000"><strong>296 💎 Diamonds</strong><small>296 + 0 Bonus</small><div class="price">Rp78.000</div></button>
+    <button class="package" data-name="568 Diamonds" data-price="148000"><strong>568 💎 Diamonds</strong><small>568 + 0 Bonus</small><div class="price">Rp148.000</div></button>
+   </div>
+   <p class="hint">Harga di atas hanya contoh untuk demo. Sesuaikan dengan harga jual dan sumber top up resmi sebelum website dipublikasikan.</p>
+  </div>
+  <div class="panel">
+   <h3>2. Data akun game</h3>
+   <div class="field"><label for="userId">User ID</label><input id="userId" type="text" placeholder="Contoh: 123456789" inputmode="numeric"></div>
+   <div class="field"><label for="zoneId">Zone ID</label><input id="zoneId" type="text" placeholder="Contoh: 1234" inputmode="numeric"></div>
+   <div class="field"><label for="payment">Metode pembayaran</label><select id="payment"><option value="">Pilih pembayaran</option><option>QRIS</option><option>DANA</option><option>GoPay</option><option>OVO</option><option>Transfer Bank</option></select></div>
+   <div class="summary-line"><span>Paket</span><b id="sumPackage">Belum dipilih</b></div>
+   <div class="summary-line"><span>User ID / Zone ID</span><b id="sumId">—</b></div>
+   <div class="summary-line"><span>Pembayaran</span><b id="sumPayment">—</b></div>
+   <div class="total"><span>Total</span><strong id="sumPrice">Rp0</strong></div>
+   <button class="btn full" onclick="orderNow()">Buat Pesanan</button>
+   <p class="hint">Demo front-end: tombol pesanan akan menampilkan ringkasan. Belum memproses pembayaran atau mengirim diamond otomatis.</p>
+  </div>
+ </div>
+</section>
+<section id="cara">
+ <div class="heading"><h2>Cara Top Up</h2><p>Hanya perlu beberapa langkah sederhana.</p></div>
+ <div class="steps"><div class="step"><b>01</b><h3>Pilih paket</h3><p>Tentukan nominal diamond yang ingin dibeli.</p></div><div class="step"><b>02</b><h3>Isi data</h3><p>Masukkan User ID, Zone ID, dan metode pembayaran.</p></div><div class="step"><b>03</b><h3>Buat pesanan</h3><p>Periksa kembali detail pesanan sebelum melakukan pembayaran.</p></div></div>
+</section>
+</main>
+<footer><strong>DIAMONDHUB</strong><span>Website demo top up Mobile Legends</span><span>© 2026 DiamondHub</span></footer>
+<script>
+let selected=null;
+const rupiah=n=>'Rp'+Number(n).toLocaleString('id-ID');
+document.querySelectorAll('.package').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.package').forEach(x=>x.classList.remove('active'));
+ btn.classList.add('active');selected={name:btn.dataset.name,price:Number(btn.dataset.price)};
+ document.getElementById('sumPackage').textContent=selected.name;
+ document.getElementById('sumPrice').textContent=rupiah(selected.price);
+}));
+['userId','zoneId'].forEach(id=>document.getElementById(id).addEventListener('input',update));
+document.getElementById('payment').addEventListener('change',update);
+function update(){
+ const uid=document.getElementById('userId').value.trim(), zid=document.getElementById('zoneId').value.trim();
+ document.getElementById('sumId').textContent=uid?(uid+(zid?' / '+zid:'')):'—';
+ document.getElementById('sumPayment').textContent=document.getElementById('payment').value||'—';
+}
+function orderNow(){
+ const uid=document.getElementById('userId').value.trim(),zid=document.getElementById('zoneId').value.trim(),pay=document.getElementById('payment').value;
+ if(!selected)return alert('Silakan pilih paket diamond terlebih dahulu.');
+ if(!uid||!zid)return alert('Lengkapi User ID dan Zone ID terlebih dahulu.');
+ if(!pay)return alert('Pilih metode pembayaran terlebih dahulu.');
+ alert('RINGKASAN PESANAN\\n\\nPaket: '+selected.name+'\\nUser ID: '+uid+'\\nZone ID: '+zid+'\\nPembayaran: '+pay+'\\nTotal: '+rupiah(selected.price)+'\\n\\nIni masih demo. Integrasikan payment gateway dan sistem pemrosesan pesanan untuk transaksi sungguhan.');
+}
+</script>
+</body>
+</html>
